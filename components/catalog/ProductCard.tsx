@@ -38,8 +38,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <span>{formatPrice(product.price)}</span>
             <Button
               size="icon"
-              variant="default"
-              className="md:hidden"
+              variant="ghost"
+              className="bg-custom-blue"
               aria-label={`Add ${product.title} to cart`}
             >
               <ShoppingCart className="h-4 w-4 bg-custom-blue text-white" aria-hidden="true" />
