@@ -7,8 +7,11 @@ import MobileFilters from "./MobileFilters"
 import CatalogToolbar from "./CatalogToolbar"
 import ProductGrid from "./ProductGrid"
 import { filterProducts, getCategories, sortProducts } from "@/lib/products"
+import { useMediaQuery } from "@/hooks/useMediaQuery"
 
-const PAGE_SIZE = 9
+const MOBILE_PAGE_SIZE = 3
+const DESKTOP_PAGE_SIZE = 9
+const DESKTOP_BREAKPOINT = "(min-width: 1024px)"
 const NEW_ARRIVALS_WINDOW_DAYS = 30
 
 function isNewArrival(product: Product): boolean {
@@ -32,28 +35,37 @@ const ProductListing = ({ products }: ProductListingProps) => {
     }
   }, [products])
 
+  const isDesktop = useMediaQuery(DESKTOP_BREAKPOINT)
+  const pageSize = isDesktop ? DESKTOP_PAGE_SIZE : MOBILE_PAGE_SIZE
+
   const [view, setView] = useState<CatalogView>("all")
   const [sortBy, setSortBy] = useState<SortOption>("recent")
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
+  const [visibleCount, setVisibleCount] = useState(MOBILE_PAGE_SIZE)
   const [filters, setFilters] = useState<ProductFilters>({
     categories: [],
     minPrice: priceBounds.min,
     maxPrice: priceBounds.max,
   })
 
+  const [prevPageSize, setPrevPageSize] = useState(pageSize)
+  if (pageSize !== prevPageSize) {
+    setPrevPageSize(pageSize)
+    setVisibleCount((prev) => Math.max(prev, pageSize))
+  }
+
   function updateFilters(next: ProductFilters) {
     setFilters(next)
-    setVisibleCount(PAGE_SIZE)
+    setVisibleCount(pageSize)
   }
 
   function updateView(next: CatalogView) {
     setView(next)
-    setVisibleCount(PAGE_SIZE)
+    setVisibleCount(pageSize)
   }
 
   function updateSort(next: SortOption) {
     setSortBy(next)
-    setVisibleCount(PAGE_SIZE)
+    setVisibleCount(pageSize)
   }
 
   const scopedProducts = useMemo(
@@ -107,7 +119,7 @@ const ProductListing = ({ products }: ProductListingProps) => {
         <ProductGrid
           products={visibleProducts}
           hasMore={hasMore}
-          onLoadMore={() => setVisibleCount((c) => c + PAGE_SIZE)}
+          onLoadMore={() => setVisibleCount((c) => c + pageSize)}
         />
       </main>
     </div>

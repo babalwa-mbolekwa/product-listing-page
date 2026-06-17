@@ -63,7 +63,7 @@ const FilterSidebar = ({
               onClick={() => onViewChange("all")}
               aria-current={view === "all" ? "page" : undefined}
               className={cn(
-                "w-full rounded-md px-3 py-2 text-left text-sm font-medium transition-colors flex items-center gap-2",
+                "w-full rounded-md px-3 py-2 text-left text-sm font-medium transition-colors flex items-center gap-2 cursor-pointer",
                 view === "all" ? "bg-[#EFF4FF] text-custom-blue border-r-4 border-custom-blue" : "hover:bg-muted text-[#434655]"
               )}
             >
@@ -77,7 +77,7 @@ const FilterSidebar = ({
               onClick={() => onViewChange("new-arrivals")}
               aria-current={view === "new-arrivals" ? "page" : undefined}
               className={cn(
-                "w-full rounded-md px-3 py-2 text-left text-sm font-medium transition-colors flex items-center gap-2",
+                "w-full rounded-md px-3 py-2 text-left text-sm font-medium transition-colors flex items-center gap-2 cursor-pointer",
                 view === "new-arrivals"
                   ? "bg-[#EFF4FF] text-custom-blue border-r-4 border-custom-blue"
                   : "hover:bg-muted text-[#434655]"
