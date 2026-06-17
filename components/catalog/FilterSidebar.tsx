@@ -9,7 +9,7 @@ import { Input } from "../ui/input"
 import { Slider } from "../ui/slider"
 import { Checkbox } from "../ui/checkbox"
 import { Button } from "../ui/button"
-import { SlidersHorizontal } from "lucide-react"
+import { LayoutGrid, SlidersHorizontal, Sparkles } from "lucide-react"
 
 export type CatalogView = "all" | "new-arrivals"
 
@@ -52,21 +52,22 @@ const FilterSidebar = ({
   return (
     <div className={cn("flex flex-col gap-6", className)}>
       <div>
-        <h2 className="text-xl font-bold text-custom-blue">Shop Catalog</h2>
-        <p className="text-sm text-muted-foreground">Browse our collection</p>
+        <h2 className="text-2xl font-bold text-custom-blue">Shop Catalog</h2>
+        <p className="text-sm text-[#434655]">Browse our collection</p>
       </div>
       <nav aria-label="Catalog views">
-        <ul className="flex flex-col gap-1">
+        <ul className="flex flex-col gap-1 py-2 lg:py-4">
           <li>
             <button
               type="button"
               onClick={() => onViewChange("all")}
               aria-current={view === "all" ? "page" : undefined}
               className={cn(
-                "w-full rounded-md px-3 py-2 text-left text-sm font-medium transition-colors",
-                view === "all" ? "bg-custom-blue text-white" : "hover:bg-muted"
+                "w-full rounded-md px-3 py-2 text-left text-sm font-medium transition-colors flex items-center gap-2",
+                view === "all" ? "bg-[#EFF4FF] text-custom-blue border-r-4 border-custom-blue" : "hover:bg-muted text-[#434655]"
               )}
             >
+              <LayoutGrid className="h-4 w-4" aria-hidden="true" />
               All Products
             </button>
           </li>
@@ -76,21 +77,22 @@ const FilterSidebar = ({
               onClick={() => onViewChange("new-arrivals")}
               aria-current={view === "new-arrivals" ? "page" : undefined}
               className={cn(
-                "w-full rounded-md px-3 py-2 text-left text-sm font-medium transition-colors",
+                "w-full rounded-md px-3 py-2 text-left text-sm font-medium transition-colors flex items-center gap-2",
                 view === "new-arrivals"
-                  ? "bg-custom-blue text-white"
-                  : "hover:bg-muted"
+                  ? "bg-[#EFF4FF] text-custom-blue border-r-4 border-custom-blue"
+                  : "hover:bg-muted text-[#434655]"
               )}
             >
+              <Sparkles className="h-4 w-4" aria-hidden="true" />
               New Arrivals
             </button>
           </li>
         </ul>
       </nav>
       <Separator />
-      <fieldset className="flex flex-col gap-3">
-        <legend className="text-sm font-semibold text-foreground">
-          Price Range
+      <fieldset className="flex flex-col gap-3 space-y-2">
+        <legend className="text-xs font-semibold text-[#0B1C30]">
+          PRICE RANGE
         </legend>
         <div className="flex items-center gap-2">
           <div className="flex-1">
@@ -109,7 +111,7 @@ const FilterSidebar = ({
                 max={filters.maxPrice}
                 value={filters.minPrice}
                 onChange={(e) => setMinPrice(Number(e.target.value))}
-                className="pl-6"
+                className="pl-6 rounded-sm"
               />
             </div>
           </div>
@@ -132,7 +134,7 @@ const FilterSidebar = ({
                 max={priceBounds.max}
                 value={filters.maxPrice}
                 onChange={(e) => setMaxPrice(Number(e.target.value))}
-                className="pl-6"
+                className="pl-6 rounded-sm"
               />
             </div>
           </div>
@@ -150,9 +152,9 @@ const FilterSidebar = ({
         />
       </fieldset>
       <Separator />
-      <fieldset className="flex flex-col gap-3">
-        <legend className="text-sm font-semibold text-foreground">
-          Category
+      <fieldset className="flex flex-col gap-3 space-y-2">
+        <legend className="text-xs font-semibold text-[#0B1C30]">
+          CATEGORY
         </legend>
         <div className="flex flex-col gap-2">
           {categories.map((category, index) => {
@@ -168,7 +170,7 @@ const FilterSidebar = ({
                     toggleCategory(category, value === true)
                   }
                 />
-                <Label htmlFor={id} className="font-normal text-foreground">
+                <Label htmlFor={id} className="font-normal text-[#0B1C30] text-sm">
                   {category}
                 </Label>
               </div>
@@ -176,7 +178,7 @@ const FilterSidebar = ({
           })}
         </div>
       </fieldset>
-      <Button onClick={onApply} className="mt-2 w-full gap-2">
+      <Button onClick={onApply} className="mt-2 w-full gap-2 bg-custom-blue text-white">
         <SlidersHorizontal className="h-4 w-4" aria-hidden="true" />
         Filter Selection
       </Button>
