@@ -37,7 +37,7 @@ const CatalogToolbar = ({
       <p className="text-sm text-muted-foreground" aria-live="polite">
         <span className="sm:hidden">{totalCount} Results</span>
         <span className="hidden sm:inline">
-          Showing {Math.min(visibleCount, totalCount)} of {totalCount} products
+          Showing 1 - {Math.min(visibleCount, totalCount)} of {totalCount} products
         </span>
       </p>
       <Select
