@@ -16,7 +16,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   return (
     <li className="group list-none">
-      <article className="flex h-full flex-col overflow-hidden rounded-lg border">
+      <article className="flex h-full flex-col overflow-hidden rounded-lg border border-[#C3C6D7]">
         <div className="relative aspect-4/3 w-full overflow-hidden bg-muted">
           <Image
             src={product.image}
@@ -27,22 +27,30 @@ const ProductCard: React.FC<ProductCardProps> = ({
             className="object-cover"
           />
         </div>
-        <div className="flex flex-1 flex-col gap-1 p-4">
-          <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-            {product.category}
-          </p>
-          <h3 className="text-sm font-semibold text-foreground">
-            {product.title}
-          </h3>
+        <div className="flex flex-1 flex-col justify-between gap-1 p-4">
+          <div>
+            <p className="text-sm font-semibold tracking-wide text-[#434655] uppercase">
+              {product.category}
+            </p>
+            <h3 className="text-2xl font-semibold text-[#0B1C30]">
+              {product.title}
+            </h3>
+          </div>
+
           <div className="mt-2 flex items-center justify-between">
-            <span>{formatPrice(product.price)}</span>
+            <span className="text-[20px] font-bold text-custom-blue">
+              {formatPrice(product.price)}
+            </span>
             <Button
               size="icon"
               variant="ghost"
-              className="bg-custom-blue"
+              className="h-11 w-11 bg-custom-blue"
               aria-label={`Add ${product.title} to cart`}
             >
-              <ShoppingCart className="h-4 w-4 bg-custom-blue text-white" aria-hidden="true" />
+              <ShoppingCart
+                className="bg-custom-blue text-white"
+                aria-hidden="true"
+              />
             </Button>
           </div>
         </div>
