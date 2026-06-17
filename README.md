@@ -53,8 +53,9 @@ app/
             ProductCard.tsx
     lib/
         api.ts              getProducts() — fetches from the mock API
-        utils.ts            cn() class-merging helper and utilities (unit tested)
-    __tests__/
+        utils.ts            cn() class-merging helper
+        products.ts         utilities (unit tested)
+        __tests__/
     types/product.ts        TypeScript interfaces and types
 ```
 
