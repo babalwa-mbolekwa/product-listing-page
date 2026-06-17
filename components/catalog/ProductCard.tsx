@@ -1,9 +1,9 @@
 import React from "react"
 import { Product } from "@/types/product"
 import Image from "next/image"
-import { formatPrice } from "@/lib/utils"
 import { Button } from "../ui/button"
 import { ShoppingCart } from "lucide-react"
+import { formatPrice } from "@/lib/products"
 
 interface ProductCardProps {
   product: Product

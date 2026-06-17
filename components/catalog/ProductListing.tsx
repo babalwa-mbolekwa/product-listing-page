@@ -3,10 +3,10 @@
 import React, { useMemo, useState } from "react"
 import { Product, ProductFilters, SortOption } from "@/types/product"
 import FilterSidebar, { CatalogView } from "./FilterSidebar"
-import { filterProducts, getCategories, sortProducts } from "@/lib/utils"
 import MobileFilters from "./MobileFilters"
 import CatalogToolbar from "./CatalogToolbar"
 import ProductGrid from "./ProductGrid"
+import { filterProducts, getCategories, sortProducts } from "@/lib/products"
 
 const PAGE_SIZE = 9
 const NEW_ARRIVALS_WINDOW_DAYS = 30

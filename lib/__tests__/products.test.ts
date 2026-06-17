@@ -1,5 +1,5 @@
 import { Product } from "@/types/product";
-import { filterProducts, formatPrice, getCategories, sortProducts } from "@/lib/utils";
+import { filterProducts, formatPrice, getCategories, sortProducts } from "../products";
 
 const products: Product[] = [
   {
