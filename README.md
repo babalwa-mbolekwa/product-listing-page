@@ -80,6 +80,6 @@ app/
 npm run test
 ```
 
-8 unit tests, testing the main utility functions
+8 unit tests, testing the products utility functions
 
-- `__tests__/products.test.ts` — `filterProducts`, `getCategories`, `sortProducts`, `formatPrice`
+- `/lib/__tests__/products.test.ts` — `filterProducts`, `getCategories`, `sortProducts`, `formatPrice`
