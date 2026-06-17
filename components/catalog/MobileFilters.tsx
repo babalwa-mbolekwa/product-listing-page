@@ -22,7 +22,7 @@ const MobileFilters = (props : MobileFiltersProps) => {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="outline" className="gap-2 lg:hidden">
+        <Button variant="outline" className="gap-2 bg-[#EFF4FF] border border-[#C3C6D7] lg:hidden">
             <SlidersHorizontal className="h-4 w-4" aria-hidden="true" />
             Filters
         </Button>

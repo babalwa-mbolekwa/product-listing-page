@@ -57,7 +57,7 @@ const ProductGrid = ({
       </ul>
       {hasMore && (
         <div className="flex justify-center">
-          <Button variant="outline" onClick={onLoadMore} className="gap-2">
+          <Button variant="outline" onClick={onLoadMore} className="gap-2 text-custom-blue border-2 border-[#C3C6D7] text-sm px-10 rounded-sm">
             Load More Products
             <ChevronDown className="h-4 w-4" aria-hidden="true" />
           </Button>

@@ -86,7 +86,7 @@ const ProductListing = ({ products }: ProductListingProps) => {
       </aside>
       <main className="flex-1">
         <div className="mb-4 flex items-center justify-between gap-3 lg:hidden">
-          <h1 className="text-lg font-bold text-foreground">Shop Catalog</h1>
+          <h1 className="text-2xl font-bold text-custom-blue">Shop Catalog</h1>
           <MobileFilters
             categories={categories}
             filters={filters}

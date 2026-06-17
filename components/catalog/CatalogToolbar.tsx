@@ -46,7 +46,7 @@ const CatalogToolbar = ({
       >
         <SelectTrigger
           aria-label="Sort products"
-          className="rounded-full sm:rounded-md"
+          className="rounded-lg sm:rounded-md gap-2 bg-[#EFF4FF] border border-[#C3C6D7]"
         >
           <LayoutGrid className="h-4 w-4 sm:hidden" aria-hidden="true" />
           <span className="hidden text-muted-foreground sm:inline">
