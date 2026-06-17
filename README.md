@@ -65,8 +65,21 @@ app/
 - **New Arrivals.** Implemented as a real filter, not just a label: it scopes the catalog to products whose `createdAt` is within the last 30 days.
 - **Add-to-cart icon.** Was visible on mobile cards only on the Figma design, but added on all screens. Cart logic not present due to scope.
 - **Price range: inputs + slider.** Made both to use the same `{ minPrice, maxPrice }` state, so they always agree. Using the slider for quick adjustment and the inputs for precise values.
-- **"Filters and Filter Selection" button.** Was only visible on the Dektop design, but added on all screens to enable users to filter on either small, medium or large screens. On mobile it doubles as the trigger that confirms the sheet — when used inside the mobile drawer, it closes the sheet after applying.
+- **"Filters and Filter Selection" button.** Was only visible on the Dektop design, but I added on all screens to enable users to filter on either small, medium or large screens. When used inside the mobile drawer, it closes the sheet after applying.
 
 ## Accessibility
 
 - Semantic structure: `<aside>` for the desktop filter sidebar, `<main>`, `<nav>` for the view switcher, `<fieldset>`/`<legend>` for the price range and category groups, `<ul>`/`<li>` for the product grid.
+- All interactive elements (checkboxes, sort `<Select>`, sliders, buttons, the mobile sheet) are native or Radix-based, and they're keyboard-operable and use correct ARIA roles/states out of the box.
+- Every product image has descriptive `alt` text (the product title); the add-to-cart icon button also has an explicit `aria-label` instead of relying on the icon alone.
+- The results count (`Showing 1-X of Y products`) is wrapped in `aria-live="polite"` so screen reader users hear updates when filters change.
+
+## Testing
+
+```bash
+npm run test
+```
+
+8 unit tests, testing the main utility functions
+
+- `__tests__/products.test.ts` — `filterProducts`, `getCategories`, `sortProducts`, `formatPrice`
